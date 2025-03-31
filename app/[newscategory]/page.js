@@ -13,9 +13,9 @@ export async function generateMetadata({ params }) {
 
 const Newscategory = async ({ params }) => {
   const { newscategory } = await params
-  const apikey = process.env.NEXT_PUBLIC_NEWS_API;
+  const apikey = process.env.NEWS_API;
 
-  console.log("News API Key:", apikey);
+  //console.log("News API Key:", apikey);
 
   return (
     <News apikey={apikey} key='general' pageSize={12} country='us' category={newscategory} />

@@ -16,9 +16,9 @@ const News = ({ country, pageSize , category , apikey }) => {
         try {
             const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apikey}&page=${page}&pageSize=${pageSize}`;
             const res = await fetch(url);
-            console.log(res)
+            //console.log(res)
             if (res.status == 429) {
-                console.log("TO MANY REQUEST");
+                //console.log("TO MANY REQUEST");
                 setError("You've hit the API rate limit.")
                 return
             }

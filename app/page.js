@@ -3,7 +3,9 @@ import Image from "next/image";
 import News from "@/components/News";
 
 export default function Home() {
-  const apikey=process.env.REACT_APP_NEWS_API;
+  const apikey = process.env.NEWS_API;
+
+  //console.log("News API Key:", apikey);
 
   return (
     <>
