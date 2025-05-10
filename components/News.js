@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react';
 import Newscomponent from './Newscomponent';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-const News = ({ country, pageSize , category , apikey }) => {
+const News = ({ country, pageSize , category  }) => {
     const [articles, setArticles] = useState([]);
     const [totalResults, setTotalResults] = useState(0);
     const [page, setPage] = useState(1);
     const [error, setError] = useState(null);
+    const apikey = process.env.NEXT_PUBLIC_NEWS_API_KEY;
+    console.log("News API Key:", apikey);
 
 
     const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
