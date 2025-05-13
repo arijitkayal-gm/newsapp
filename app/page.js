@@ -4,12 +4,9 @@ import News from "@/components/News";
 
 export default function Home() {
 
-
-  //console.log("News API Key:", apikey);
-
   return (
     <>
-     <News key='general' pageSize={12} country='us' category='general'/>
+     <News key='general' pageSize={48} country='us' category='general'/>
      </>
   
   );
