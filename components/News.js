@@ -67,7 +67,7 @@ const News = ({ country, pageSize, category }) => {
                 next={fetchMoreData}
                 hasMore={articles.length !== totalResults}
                 loader={<p className="text-center text-gray-500 py-4">Loading more news...</p>}
-                endMessage={<p className="text-center text-gray-400 py-6 text-sm italic"> That's all for now. Check back later for more updates!</p>}
+                endMessage={<p className="text-center text-gray-400 py-6 text-sm italic"> That&apos;s all for now. Check back later for more updates!</p>}
             >
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     {articles.map((article, index) => (
