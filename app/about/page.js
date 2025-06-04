@@ -1,4 +1,3 @@
-import NewsSkeleton from '@/components/NewsSkeleton'
 import React from 'react'
 
 const About = () => {
@@ -28,7 +27,6 @@ const About = () => {
       <p className="text-lg text-center max-w-2xl leading-relaxed mt-6">
         Stay informed. Stay ahead. Explore the world with <span className="font-semibold">WorldNews</span>.
       </p>
-      <NewsSkeleton />
     </div>
   )
 }

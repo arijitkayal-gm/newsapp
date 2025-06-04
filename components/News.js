@@ -40,7 +40,6 @@ const News = ({ country, pageSize, category }) => {
 
         try {
             const url = `/api/news?country=${country}&category=${category}&page=${nextPage}&pageSize=${pageSize}`;
-            console.log("Fetching page:", nextPage,"alength:",articles.length,"Total:",totalResults);
 
             const res = await fetch(url);
             const data = await res.json();
