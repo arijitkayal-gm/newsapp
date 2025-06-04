@@ -2,18 +2,20 @@
 import React, { useEffect, useState } from 'react';
 import Newscomponent from './Newscomponent';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import NewsSkeleton from './NewsSkeleton';
 
 const News = ({ country, pageSize, category }) => {
     const [articles, setArticles] = useState([]);
     const [totalResults, setTotalResults] = useState(0);
     const [page, setPage] = useState(1);
     const [error, setError] = useState(null);
-
+    const [loading, setLoading] = useState(true); 
 
     const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
     const fetchNews = async () => {
         try {
+            setLoading(true)
             const url = `/api/news?country=${country}&category=${category}&page=1&pageSize=${pageSize}`;
             const res = await fetch(url);
             const data = await res.json();
@@ -22,6 +24,8 @@ const News = ({ country, pageSize, category }) => {
         } catch (err) {
             console.error('Error fetching news:', err);
             setError('Failed to fetch news. Please try again.');
+        } finally {
+            setLoading(false); // stop loading
         }
     };
 
@@ -36,7 +40,7 @@ const News = ({ country, pageSize, category }) => {
 
         try {
             const url = `/api/news?country=${country}&category=${category}&page=${nextPage}&pageSize=${pageSize}`;
-            console.log("Fetching page:", nextPage);
+            console.log("Fetching page:", nextPage,"alength:",articles.length,"Total:",totalResults);
 
             const res = await fetch(url);
             const data = await res.json();
@@ -62,14 +66,20 @@ const News = ({ country, pageSize, category }) => {
                 Top News - {capitalize(category)}
             </h1>
 
-            {articles && Array.isArray(articles) && (<InfiniteScroll
+             {loading ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
+                    {Array.from({ length: 8 }).map((_, i) => (
+                        <NewsSkeleton key={i} />
+                    ))}
+                </div>
+            ) : (<InfiniteScroll
                 dataLength={articles.length}
                 next={fetchMoreData}
-                hasMore={articles.length !== totalResults}
+                hasMore={page * pageSize < totalResults}
                 loader={<p className="text-center text-gray-500 py-4">Loading more news...</p>}
                 endMessage={<p className="text-center text-gray-400 py-6 text-sm italic"> That&apos;s all for now. Check back later for more updates!</p>}
             >
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
                     {articles.map((article, index) => (
                         <Newscomponent
                             key={`${article.url}-${index}`}

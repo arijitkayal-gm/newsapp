@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <>
-     <News key='general' pageSize={48} country='us' category='general'/>
+     <News key='general' pageSize={12} country='us' category='general'/>
      </>
   
   );

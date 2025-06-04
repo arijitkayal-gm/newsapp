@@ -1,8 +1,9 @@
+import NewsSkeleton from '@/components/NewsSkeleton'
 import React from 'react'
 
 const About = () => {
   return (
-    <div className="pt-24 px-6 min-h-screen text-white flex flex-col items-center">
+    <div className="pt-24 px-6 pb-10 text-white flex flex-col items-center ">
       <h1 className="text-4xl font-bold text-center mb-6">About WorldNews</h1>
       
       <p className="text-lg text-center max-w-2xl leading-relaxed">
@@ -27,6 +28,7 @@ const About = () => {
       <p className="text-lg text-center max-w-2xl leading-relaxed mt-6">
         Stay informed. Stay ahead. Explore the world with <span className="font-semibold">WorldNews</span>.
       </p>
+      <NewsSkeleton />
     </div>
   )
 }

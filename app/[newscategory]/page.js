@@ -18,7 +18,7 @@ const Newscategory = async ({ params }) => {
   //console.log("News API Key:", apikey);
 
   return (
-    <News apikey={apikey} key='general' pageSize={8} country='us' category={newscategory} />
+    <News apikey={apikey} key='general' pageSize={12} country='us' category={newscategory} />
   )
 }
 
