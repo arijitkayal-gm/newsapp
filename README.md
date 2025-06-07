@@ -8,6 +8,7 @@ A fast, responsive, and modern **News App** built with **Next.js**, letting user
 - 🔄 **Infinite Scrolling** – Seamlessly loads more articles as you scroll.
 - ⚡ **Fast Rendering** – Built with **Next.js App Router** for optimized performance.
 - 📱 **Responsive Design** – Looks great on all screen sizes.
+- 📰 **Open Full Articles** – Click on Full Article button to read the full article in a new tab.
 
 ## 🛠 Tech Stack
 
